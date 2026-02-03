@@ -1,48 +1,107 @@
-<div class="dashboard-wrapper">
-    <aside class="sidebar">
-        <h3>MonsterGraphic</h3>
-        <ul>
-            <li>🏠 Dashboard</li>
-            <li>📈 Meu Projeto</li>
-            <li>💳 Faturas</li>
-            <li>🎧 Suporte</li>
-        </ul>
-    </aside>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Cliente | MonsterGraphic</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos mantidos e corrigidos do anterior */
+        body { display: flex; flex-direction: column; min-height: 100vh; background: #050505; color: #fff; }
+        .dashboard-wrapper { display: grid; grid-template-columns: 280px 1fr; flex-grow: 1; margin-top: 80px; }
 
-    <main class="content">
-        <header class="dash-header">
-            <h1>Bem-vindo, Cliente!</h1>
-            <p>Gerenciamento de sistema por: <strong>Leopoldo Collato</strong></p>
-        </header>
+        .sidebar {
+            background: #0f0f0f;
+            border-right: 1px solid #222;
+            padding: 40px 20px;
+            position: sticky;
+            top: 80px;
+            height: calc(100vh - 80px);
+        }
 
-        <section class="status-cards">
-            <div class="card">
-                <h3>Status do Sistema</h3>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 75%;">75%</div>
+        .sidebar-menu { list-style: none; }
+        .sidebar-menu li { margin-bottom: 10px; }
+
+        .sidebar-menu a {
+            text-decoration: none;
+            color: #777;
+            font-size: 0.95rem;
+            padding: 15px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        /* Destaque para a opção ativa ou hover */
+        .sidebar-menu a:hover, .sidebar-menu a.active {
+            background: rgba(0, 255, 136, 0.05);
+            color: var(--primary);
+            border-color: rgba(0, 255, 136, 0.2);
+        }
+
+        .main-content { padding: 40px; }
+        
+        /* Estilo para botões de ação dentro do conteúdo */
+        .card-action {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            border-bottom: 1px solid var(--primary);
+        }
+
+        @media (max-width: 900px) {
+            .dashboard-wrapper { grid-template-columns: 1fr; }
+            .sidebar { padding: 20px; height: auto; position: relative; top: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">MONSTER<span>GRAPHIC</span></div>
+            <div style="color: #666; font-size: 0.8rem;">Área Protegida por <strong>MonsterShield</strong></div>
+        </nav>
+    </header>
+
+    <div class="dashboard-wrapper">
+        <aside class="sidebar">
+            <ul class="sidebar-menu">
+                <li><a href="#" class="active">📊 Visão Geral</a></li>
+                <li><a href="#">🚀 Seu Projeto</a></li>
+                <li><a href="#">🎫 Emitir Boleto</a></li>
+                <li><a href="#">📝 Contrato</a></li>
+                <li><a href="contato.html">🎧 Suporte</a></li>
+                <li style="margin-top: 40px; border-top: 1px solid #222; pt-20px;">
+                    <a href="index.html" style="color: #ff4444;">🚪 Sair do Painel</a>
+                </li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <header>
+                <h1 style="font-family: 'Orbitron';">Bem-vindo, <span>Leopoldo</span></h1>
+                <p style="color: #555;">Gerencie seus serviços e documentos técnicos.</p>
+            </header>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 30px;">
+                <div style="background: #111; padding: 25px; border-radius: 15px; border: 1px solid #222;">
+                    <h3 style="font-size: 1rem; color: var(--primary); font-family: 'Orbitron';">Status: Seu Projeto</h3>
+                    <p style="font-size: 0.85rem; color: #888; margin-top: 10px;">O desenvolvimento do módulo de banco de dados está em 80%.</p>
+                    <a href="#" class="card-action">Ver cronograma completo</a>
                 </div>
-                <p>Fase atual: Integração de API</p>
-            </div>
 
-            <div class="card">
-                <h3>Faturas Recentes</h3>
-                <table>
-                    <tr>
-                        <td>Jan/2026</td>
-                        <td><span class="status paid">Pago</span></td>
-                    </tr>
-                    <tr>
-                        <td>Fev/2026</td>
-                        <td><span class="status pending">Pendente</span></td>
-                    </tr>
-                </table>
+                <div style="background: #111; padding: 25px; border-radius: 15px; border: 1px solid #222;">
+                    <h3 style="font-size: 1rem; color: #fff; font-family: 'Orbitron';">Financeiro</h3>
+                    <p style="font-size: 0.85rem; color: #888; margin-top: 10px;">Próxima fatura vence em: <strong>15/02/2026</strong></p>
+                    <a href="#" class="card-action">Emitir Boleto PDF</a>
+                </div>
             </div>
-        </section>
-
-        <section class="support-section">
-            <h3>Precisa de ajuda?</h3>
-            <p>Fale diretamente com Leopoldo: <strong>+55 (11) 99291-6204</strong></p>
-            <a href="mailto:lcollato@gmail.com" class="btn-main">Enviar E-mail</a>
-        </section>
-    </main>
-</div>
+            
+            <div style="margin-top: 30px; background: rgba(255,255,255,0

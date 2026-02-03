@@ -3,37 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login do Cliente | MonsterGraphic</title>
+    <title>Login | MonsterGraphic</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* Estilos específicos para a página de Login */
-        .login-page {
-            height: 100vh;
+        /* Padronização de Layout */
+        body {
+            background: #050505;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        .navbar {
+            height: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Container de Login */
+        .login-main {
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            background: radial-gradient(circle at center, #111 0%, #000 100%);
-            padding: 20px;
+            padding-top: 80px; /* Altura do Header */
+            background: radial-gradient(circle at center, #111 0%, #050505 100%);
         }
 
         .login-card {
-            background: #151515;
-            width: 100%;
+            background: #0f0f0f;
+            width: 90%;
             max-width: 400px;
             padding: 40px;
-            border-radius: 20px;
+            border-radius: 15px;
             border: 1px solid #222;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
             text-align: center;
-            animation: fadeInUp 0.8s ease-out;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .login-card h2 {
             font-family: 'Orbitron', sans-serif;
             color: var(--primary);
-            margin-bottom: 10px;
-            font-size: 1.8rem;
+            margin-bottom: 5px;
+            font-size: 1.6rem;
         }
 
         .login-card p {
@@ -42,101 +75,121 @@
             margin-bottom: 30px;
         }
 
-        .form-control {
+        .form-group {
             margin-bottom: 20px;
             text-align: left;
         }
 
-        .form-control label {
+        .form-group label {
             display: block;
-            color: #aaa;
-            font-size: 0.8rem;
-            margin-bottom: 5px;
-            margin-left: 5px;
+            color: #888;
+            font-size: 0.75rem;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .form-control input {
+        .form-group input {
             width: 100%;
-            padding: 12px 15px;
-            background: #0a0a0a;
-            border: 1px solid #333;
+            padding: 14px;
+            background: #080808;
+            border: 1px solid #222;
             border-radius: 8px;
             color: #fff;
-            outline: none;
-            transition: var(--transition);
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
         }
 
-        .form-control input:focus {
+        .form-group input:focus {
             border-color: var(--primary);
+            outline: none;
             box-shadow: 0 0 10px rgba(0, 255, 136, 0.1);
+            background: #111;
         }
 
-        .login-options {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-            font-size: 0.8rem;
-            color: #666;
-        }
-
-        .login-options a {
-            color: var(--primary);
-            text-decoration: none;
-        }
-
-        .btn-full {
+        /* Botão estilizado com sua classe padrão */
+        .btn-submit {
             width: 100%;
             padding: 15px;
-            border-radius: 8px;
-            font-size: 1rem;
+            margin-top: 10px;
+            font-weight: 600;
+            cursor: pointer;
         }
 
-        .back-home {
+        /* Opções extras */
+        .login-footer {
             margin-top: 25px;
-            display: block;
+            padding-top: 20px;
+            border-top: 1px solid #1a1a1a;
             font-size: 0.85rem;
+            color: #555;
+        }
+
+        .login-footer a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .login-footer a:hover {
+            text-decoration: underline;
+        }
+
+        .forgot-pass {
+            display: inline-block;
+            margin-top: 15px;
+            font-size: 0.8rem;
             color: #444;
             text-decoration: none;
-            transition: 0.3s;
-        }
-
-        .back-home:hover {
-            color: var(--primary);
         }
     </style>
 </head>
-<body class="login-page">
+<body>
 
-    <div class="login-card">
-        <div class="logo" style="margin-bottom: 20px; font-size: 1.2rem;">
-            MONSTER<span>GRAPHIC</span>
+    <header>
+        <nav class="navbar">
+            <div class="logo">MONSTER<span>GRAPHIC</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="servicos.html">Serviços</a></li>
+                <li><a href="imagens.html">Imagens</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <li><a href="login.html" class="active" style="color: var(--primary);">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="login-main">
+        <div class="login-card">
+            <h2>Portal do <span>Cliente</span></h2>
+            <p>Insira suas credenciais para acessar o painel.</p>
+
+            <form action="dashboard.html" method="GET">
+                <div class="form-group">
+                    <label>E-mail Corporativo</label>
+                    <input type="email" placeholder="exemplo@empresa.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Senha de Acesso</label>
+                    <input type="password" placeholder="••••••••" required>
+                </div>
+
+                <button type="submit" class="btn-main btn-submit">Entrar no Sistema</button>
+            </form>
+
+            <a href="#" class="forgot-pass">Esqueceu a senha?</a>
+
+            <div class="login-footer">
+                Não é um parceiro? <a href="cadastro.html">Cadastre-se agora</a>
+            </div>
         </div>
-        
-        <h2>Acesse seu Painel</h2>
-        <p>Acompanhe seu desenvolvimento, faturas e suporte com Leopoldo Collato.</p>
+    </main>
 
-        <form action="dashboard.html">
-            <div class="form-control">
-                <label>E-mail de Acesso</label>
-                <input type="email" placeholder="seu@email.com" required>
-            </div>
-
-            <div class="form-control">
-                <label>Senha</label>
-                <input type="password" placeholder="••••••••" required>
-            </div>
-
-            <div class="login-options">
-                <label><input type="checkbox"> Lembrar-me</label>
-                <a href="#">Esqueceu a senha?</a>
-            </div>
-
-            <button type="submit" class="btn-main btn-full">Entrar no Sistema</button>
-        </form>
-
-        <a href="index.html" class="back-home">← Voltar para o site principal</a>
-    </div>
+    <footer style="text-align: center; padding: 30px; color: #1a1a1a; font-size: 0.75rem;">
+        &copy; 2026 MonsterGraphic - Engenharia por Leopoldo Collato.
+    </footer>
 
 </body>
 </html>

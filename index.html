@@ -7,15 +7,17 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
+        /* Ajuste crucial para visibilidade total abaixo do menu */
         .hero {
-            min-height: 100vh;
+            min-height: calc(100vh - 80px); /* Subtrai a altura do menu */
+            margin-top: 80px; /* Empurra todo o conteúdo para baixo do menu fixo */
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start; /* Alinha o texto no topo da área visível */
             align-items: center;
             text-align: center;
-            background: radial-gradient(circle at center, #1a1a1a 0%, #050505 100%);
-            padding: 0 5%;
+            background: radial-gradient(circle at center, #111 0%, #050505 100%);
+            padding: 60px 5%; /* Espaçamento interno para o texto não colar nas bordas */
         }
 
         .hero-text {
@@ -25,41 +27,48 @@
 
         .hero-text h1 {
             font-family: 'Orbitron', sans-serif;
-            font-size: clamp(2.5rem, 6vw, 5rem);
-            line-height: 1.1;
-            margin-bottom: 30px;
+            font-size: clamp(2rem, 5vw, 4rem);
+            line-height: 1.2;
+            margin-bottom: 25px;
+            color: #fff;
         }
 
         .hero-text h1 span {
             color: var(--primary);
-            display: block;
+            display: inline-block;
         }
 
         .hero-text p {
-            font-size: 1.2rem;
-            color: var(--text-dim);
-            max-width: 600px;
-            margin: 0 auto;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: #aaa;
+            max-width: 750px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
         }
 
-        /* POSICIONAMENTO DO BOTÃO MAIS ABAIXO */
+        /* Botão posicionado bem abaixo como solicitado */
         .hero-cta-container {
-            margin-top: 150px; /* Grande recuo superior para "empurrar" o botão para baixo */
-            animation: fadeInUp 1.2s ease-out;
-        }
-
-        .scroll-indicator {
-            margin-top: 30px;
-            color: var(--primary);
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            opacity: 0.5;
+            margin-top: 100px; 
+            padding-bottom: 50px;
+            animation: fadeInUp 1.4s ease-out;
         }
 
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Garantia de que a Navbar não esconda nada */
+        .navbar {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.98);
+            z-index: 1000;
+            border-bottom: 1px solid #222;
         }
     </style>
 </head>
@@ -67,11 +76,11 @@
 
     <header>
         <nav class="navbar">
-            <div class="logo">MONSTER<span>GRAPHIC</span></div>
-            <ul class="nav-links">
+            <div class="logo" style="margin-left: 5%;">MONSTER<span>GRAPHIC</span></div>
+            <ul class="nav-links" style="margin-right: 5%;">
                 <li><a href="index.html" style="color: var(--primary);">Início</a></li>
                 <li><a href="servicos.html">Serviços</a></li>
-                <li><a href="projetos.html">Imagens</a></li>
+                <li><a href="imagens.html">Imagens</a></li>
                 <li><a href="sobre.html">Sobre</a></li>
                 <li><a href="contato.html">Contato</a></li>
                 <li><a href="login.html" class="btn-login">Login</a></li>
@@ -82,16 +91,8 @@
     <main>
         <section class="hero">
             <div class="hero-text">
-                <h1>Sistemas que Dominam o <span>Mercado Digital.</span></h1>
-                <p>Desenvolvimento Full-Stack com Python, Java e Segurança da Informação por <strong>Leopoldo Collato</strong>.</p>
-            </div>
-
-            <div class="hero-cta-container">
-                <a href="projetos.html" class="btn-main">Ver Projetos Realizados</a>
-                <div class="scroll-indicator">Explore a Monstruosidade</div>
-            </div>
-        </section>
-    </main>
-
-    <a href="https://wa.me/5511992916204" class="whatsapp-float" target="_blank">
-        <svg viewBox="0 0 32 32" style="width:30px; fill:white;"><path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.733 5.48 2.017
+                <h1>Engenharia de Software e Sistemas <span>Monstruosos</span></h1>
+                <p>
+                    Seja bem-vindo à <strong>MonsterGraphic</strong>. Aqui, transformamos problemas complexos em soluções digitais elegantes. 
+                    Especialista em Python, Java e arquitetura de sistemas seguros sob a liderança de Leopoldo Collato.
+                </p>
