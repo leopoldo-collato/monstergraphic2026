@@ -2,17 +2,141 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login do Cliente | MonsterGraphic</title>
     <link rel="stylesheet" href="style.css">
-    <title>Login | MonsterGraphic</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos específicos para a página de Login */
+        .login-page {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle at center, #111 0%, #000 100%);
+            padding: 20px;
+        }
+
+        .login-card {
+            background: #151515;
+            width: 100%;
+            max-width: 400px;
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #222;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            text-align: center;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .login-card h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.8rem;
+        }
+
+        .login-card p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+        }
+
+        .form-control {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-control label {
+            display: block;
+            color: #aaa;
+            font-size: 0.8rem;
+            margin-bottom: 5px;
+            margin-left: 5px;
+        }
+
+        .form-control input {
+            width: 100%;
+            padding: 12px 15px;
+            background: #0a0a0a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            color: #fff;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .form-control input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(0, 255, 136, 0.1);
+        }
+
+        .login-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .login-options a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .btn-full {
+            width: 100%;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .back-home {
+            margin-top: 25px;
+            display: block;
+            font-size: 0.85rem;
+            color: #444;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .back-home:hover {
+            color: var(--primary);
+        }
+    </style>
 </head>
 <body class="login-page">
-    <div class="login-container">
-        <h2>Área do Cliente</h2>
-        <form action="dashboard.html"> <input type="email" placeholder="E-mail" required>
-            <input type="password" placeholder="Senha" required>
-            <button type="submit" class="btn-main">Entrar no Painel</button>
+
+    <div class="login-card">
+        <div class="logo" style="margin-bottom: 20px; font-size: 1.2rem;">
+            MONSTER<span>GRAPHIC</span>
+        </div>
+        
+        <h2>Acesse seu Painel</h2>
+        <p>Acompanhe seu desenvolvimento, faturas e suporte com Leopoldo Collato.</p>
+
+        <form action="dashboard.html">
+            <div class="form-control">
+                <label>E-mail de Acesso</label>
+                <input type="email" placeholder="seu@email.com" required>
+            </div>
+
+            <div class="form-control">
+                <label>Senha</label>
+                <input type="password" placeholder="••••••••" required>
+            </div>
+
+            <div class="login-options">
+                <label><input type="checkbox"> Lembrar-me</label>
+                <a href="#">Esqueceu a senha?</a>
+            </div>
+
+            <button type="submit" class="btn-main btn-full">Entrar no Sistema</button>
         </form>
-        <p><a href="index.html">Voltar para o site</a></p>
+
+        <a href="index.html" class="back-home">← Voltar para o site principal</a>
     </div>
+
 </body>
 </html>

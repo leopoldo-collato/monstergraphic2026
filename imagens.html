@@ -1,43 +1,126 @@
-<section id="imagens" class="portfolio-section">
-    <div class="container">
-        <h2 class="section-title">Portfólio Monstruoso</h2>
-        <p class="subtitle">Alguns dos sistemas e interfaces desenvolvidos por Leopoldo Collato.</p>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria | MonsterGraphic - Leopoldo Collato</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos específicos para a Galeria de Imagens */
+        .gallery-page {
+            padding: 150px 5% 80px;
+            background: #0a0a0a;
+            min-height: 100vh;
+        }
+
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        /* Grade Mosaico Intuitiva */
+        .mosaic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-auto-rows: 280px;
+            grid-auto-flow: dense;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .mosaic-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            background: #111;
+            border: 1px solid #222;
+            transition: var(--transition);
+        }
+
+        /* Variações de tamanho para efeito visual */
+        .mosaic-item.tall { grid-row: span 2; }
+        .mosaic-item.wide { grid-column: span 2; }
+
+        .mosaic-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+            filter: grayscale(30%);
+        }
+
+        .mosaic-item:hover img {
+            transform: scale(1.1);
+            filter: grayscale(0%);
+        }
+
+        /* Overlay com informações do projeto */
+        .mosaic-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 255, 136, 0.9), transparent);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            opacity: 0;
+            transition: 0.3s ease;
+        }
+
+        .mosaic-item:hover .mosaic-overlay {
+            opacity: 1;
+        }
+
+        .mosaic-overlay h4 {
+            font-family: 'Orbitron', sans-serif;
+            color: #000;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .mosaic-overlay p {
+            color: #000;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* BOTÃO REPOSICIONADO MAIS ABAIXO */
+        .gallery-footer-cta {
+            margin-top: 130px; /* Grande espaçamento para o botão */
+            text-align: center;
+            padding-bottom: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .mosaic-item.wide { grid-column: span 1; }
+            .gallery-footer-cta { margin-top: 70px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">MONSTER<span>GRAPHIC</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="servicos.html">Serviços</a></li>
+                <li><a href="imagens.html" style="color: var(--primary);">Imagens</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <li><a href="login.html" class="btn-login">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="gallery-page">
+        <div class="gallery-header">
+            <h1 class="section-title">Portfólio <span>Visual</span></h1>
+            <p>Interfaces monstruosas e sistemas de alta complexidade.</p>
+        </div>
 
         <div class="mosaic-grid">
             <div class="mosaic-item tall">
-                <img src="projeto1.jpg" alt="Sistema ERP">
-                <div class="overlay">
-                    <span>Sistema ERP Customizado</span>
-                </div>
-            </div>
-
-            <div class="mosaic-item">
-                <img src="projeto2.jpg" alt="Landing Page">
-                <div class="overlay">
-                    <span>Landing Page de Alta Conversão</span>
-                </div>
-            </div>
-
-            <div class="mosaic-item wide">
-                <img src="projeto3.jpg" alt="Dashboard Financeiro">
-                <div class="overlay">
-                    <span>Dashboard Financeiro</span>
-                </div>
-            </div>
-
-            <div class="mosaic-item">
-                <img src="projeto4.jpg" alt="E-commerce">
-                <div class="overlay">
-                    <span>Plataforma E-commerce</span>
-                </div>
-            </div>
-            
-            <div class="mosaic-item tall">
-                <img src="projeto5.jpg" alt="Interface Mobile">
-                <div class="overlay">
-                    <span>Interface Mobile UI/UX</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+                <img src="https://images.unsplash.com/photo-1551288049-bbbda546697a?auto=format&fit=crop&w=800&q=80" alt="Sistemas">
