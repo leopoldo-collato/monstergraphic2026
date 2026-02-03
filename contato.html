@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato | MonsterGraphic - Leopoldo Collato</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos específicos para a página de contato */
+        .contact-page {
+            padding-top: 120px; /* Espaço para o header fixo */
+            background: radial-gradient(circle at top, #1a1a1a 0%, #0a0a0a 100%);
+            min-height: 100vh;
+        }
+
+        .contact-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 50px;
+        }
+
+        .contact-info h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: #00ff88;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .info-box {
+            margin-top: 30px;
+        }
+
+        .info-item {
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .info-item strong {
+            display: block;
+            color: #00ff88;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .info-item a, .info-item p {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        /* Formulário Intuitivo */
+        .contact-form {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 255, 136, 0.1);
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 35px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px 0;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid #333;
+            color: #fff;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-group label {
+            position: absolute;
+            left: 0;
+            top: 10px;
+            color: #888;
+            transition: 0.3s;
+            pointer-events: none;
+        }
+
+        .form-group input:focus ~ label,
+        .form-group input:valid ~ label,
+        .form-group textarea:focus ~ label,
+        .form-group textarea:valid ~ label {
+            top: -20px;
+            font-size: 0.8rem;
+            color: #00ff88;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-bottom-color: #00ff88;
+        }
+
+        .btn-send {
+            width: 100%;
+            background: #00ff88;
+            color: #0a0a0a;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .btn-send:hover {
+            background: #00cc6e;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 255, 136, 0.2);
+        }
+
+        @media (max-width: 850px) {
+            .contact-container { grid-template-columns: 1fr; }
+            .contact-info { text-align: center; }
+            .info-item { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">MONSTER<span>GRAPHIC</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="index.html#servicos">Serviços</a></li>
+                <li><a href="index.html#imagens">Imagens</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html" style="color: #00ff88;">Contato</a></li>
+                <li><a href="login.html" class="btn-login">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contact-page">
+        <div class="contact-container">
+            
+            <div class="contact-info">
+                <h2>Vamos criar algo <br><span>monstruoso?</span></h2>
+                <p>Desenvolvimento de sistemas sob medida com Leopoldo Collato.</p>
+                
+                <div class="info-box">
+                    <div class="info-item">
+                        <div>
+                            <strong>E-mail Direto</strong>
+                            <a href="mailto:lcollato@gmail.com">lcollato@gmail.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div>
+                            <strong>WhatsApp / Telefone</strong>
+                            <a href="tel:+5511992916204">+55 (11) 99291-6204</a>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div>
+                            <strong>Proprietário</strong>
+                            <p>Leopoldo Collato</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <form action="https://formsubmit.co/lcollato@gmail.com" method="POST">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    
+                    <div class="form-group">
+                        <input type="text" name="nome" required>
+                        <label>Nome Completo</label>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="email" name="email" required>
+                        <label>Seu Melhor E-mail</label>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" name="assunto">
+                        <label>Assunto (Ex: Novo Sistema)</label>
+                    </div>
+
+                    <div class="form-group">
+                        <textarea name="mensagem" rows="5" required></textarea>
+                        <label>Como posso ajudar o seu negócio?</label>
+                    </div>
+
+                    <button type="submit" class="btn-send">Enviar Mensagem</button>
+                </form>
+            </div>
+
+        </div>
+    </main>
+
+    <footer style="text-align: center; padding: 40px; color: #555; font-size: 0.9rem;">
+        &copy; 2026 MonsterGraphic - Desenvolvido por Leopoldo Collato.
+    </footer>
+
+</body>
+</html>
