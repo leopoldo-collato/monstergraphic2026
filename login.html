@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | MonsterGraphic</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
     <style>
         /* Padronização de Layout */
         body {
@@ -41,7 +44,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding-top: 80px; /* Altura do Header */
+            padding-top: 80px;
+            /* Altura do Header */
             background: radial-gradient(circle at center, #111 0%, #050505 100%);
         }
 
@@ -58,8 +62,15 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .login-card h2 {
@@ -144,6 +155,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <header>
@@ -167,8 +179,8 @@
 
             <form action="dashboard.html" method="GET">
                 <div class="form-group">
-                    <label>E-mail Corporativo</label>
-                    <input type="email" placeholder="exemplo@empresa.com" required>
+                    <label>E-mail</label>
+                    <input type="email" placeholder="exemplo@exemplo.com" required>
                 </div>
 
                 <div class="form-group">
@@ -192,4 +204,5 @@
     </footer>
 
 </body>
+
 </html>
