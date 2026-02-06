@@ -1,120 +1,115 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre | MonsterGraphic - Leopoldo Collato</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
     <style>
-        /* Estilos específicos para a página Sobre */
         .about-hero {
             padding-top: 150px;
             padding-bottom: 80px;
-            background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+            background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%);
         }
 
         .about-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 5%;
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1.2fr;
             gap: 80px;
             align-items: center;
         }
 
+        /* Container da Imagem com Posição Relativa */
         .about-image-wrapper {
             position: relative;
+            display: inline-block;
+            width: 100%;
+            max-width: 450px;
         }
 
         .about-image-wrapper img {
             width: 100%;
             border-radius: 20px;
-            border: 4px solid #00ff88;
-            box-shadow: 0 0 30px rgba(0, 255, 136, 0.2);
+            border: 2px solid var(--primary);
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.1);
+            display: block;
         }
 
+        /* Card posicionado no inferior da lateral direita */
         .experience-card {
             position: absolute;
-            bottom: -30px;
-            right: -30px;
-            background: #00ff88;
+            bottom: -20px;
+            /* Deslocado para fora da imagem (parte inferior) */
+            right: -20px;
+            /* Deslocado para fora da imagem (lateral direita) */
+            background: var(--primary);
             color: #0a0a0a;
-            padding: 25px;
-            border-radius: 15px;
+            padding: 15px 25px;
+            border-radius: 12px;
             font-family: 'Orbitron', sans-serif;
             text-align: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            z-index: 10;
         }
 
         .experience-card span {
             display: block;
-            font-size: 2.5rem;
-            font-weight: bold;
+            font-size: 2rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .experience-card p {
+            font-size: 0.75rem;
+            margin: 5px 0 0;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #000;
         }
 
         .about-content h1 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 2.8rem;
-            margin-bottom: 10px;
+            font-size: 3rem;
             color: #fff;
+            margin-bottom: 20px;
         }
 
         .about-content h1 span {
-            color: #00ff88;
-        }
-
-        .about-content h3 {
-            color: #00ff88;
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 25px;
+            color: var(--primary);
         }
 
         .about-content p {
-            font-size: 1.1rem;
+            color: #aaa;
             line-height: 1.8;
-            color: #ccc;
-            margin-bottom: 30px;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-top: 40px;
-        }
-
-        .stat-item {
-            background: rgba(255,255,255,0.05);
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            border-bottom: 2px solid #00ff88;
-        }
-
-        .stat-item h4 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.5rem;
-            color: #fff;
-        }
-
-        .stat-item p {
-            font-size: 0.8rem;
-            margin-bottom: 0;
-            color: #00ff88;
+            margin-bottom: 25px;
         }
 
         @media (max-width: 968px) {
-            .about-container { grid-template-columns: 1fr; gap: 50px; text-align: center; }
-            .about-image-wrapper { max-width: 400px; margin: 0 auto; }
-            .experience-card { right: 0; bottom: -20px; padding: 15px; }
-            .stats-grid { grid-template-columns: 1fr; }
+            .about-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .about-image-wrapper {
+                margin: 0 auto 50px;
+            }
+
+            /* No mobile, ajustamos para não vazar da tela */
+            .experience-card {
+                right: 10px;
+                bottom: 10px;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <header>
@@ -122,9 +117,9 @@
             <div class="logo">MONSTER<span>GRAPHIC</span></div>
             <ul class="nav-links">
                 <li><a href="index.html">Início</a></li>
-                <li><a href="index.html#servicos">Serviços</a></li>
-                <li><a href="index.html#imagens">Imagens</a></li>
-                <li><a href="sobre.html" style="color: #00ff88;">Sobre</a></li>
+                <li><a href="servicos.html">Serviços</a></li>
+                <li><a href="imagens.html">Imagens</a></li>
+                <li><a href="sobre.html" style="color: var(--primary);">Sobre</a></li>
                 <li><a href="contato.html">Contato</a></li>
                 <li><a href="login.html" class="btn-login">Login</a></li>
             </ul>
@@ -134,9 +129,9 @@
     <main class="about-hero">
         <div class="about-container">
             <div class="about-image-wrapper">
-                <img src="assets/leopoldo-collato.jpg" alt="Leopoldo Collato">
+                <img src="imagem/leopoldo_collato.jpg" alt="Leopoldo Collato">
                 <div class="experience-card">
-                    <span>10+</span>
+                    <span>25</span>
                     <p>Anos de Código</p>
                 </div>
             </div>
@@ -145,4 +140,17 @@
                 <h3>O Especialista</h3>
                 <h1>Leopoldo <span>Collato</span></h1>
                 <p>
-                    Fundador da <strong>MonsterGraphic</strong>
+                    Fundador da <strong>MonsterGraphic</strong>, Leopoldo Collato é um arquiteto de soluções com mais de
+                    duas décadas de imersão no universo do desenvolvimento de software. Especialista em construir
+                    sistemas que não apenas funcionam, mas dominam o ambiente digital.
+                </p>
+                <p>
+                    Sua abordagem combina a robustez do backend com a precisão estética do design moderno.
+                </p>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>
