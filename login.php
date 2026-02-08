@@ -1,14 +1,19 @@
+<?php
+// Inicia a sessão para checar se o usuário já não está logado
+session_start();
+if (isset($_SESSION['user_id'])) {
+    header("Location: dashboard.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | MonsterGraphic - Leopoldo Collato</title>
     <link rel="stylesheet" href="style.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #00ff88;
@@ -34,7 +39,7 @@
             background: rgba(15, 15, 15, 0.98);
             border: 1px solid #1a1a1a;
             border-radius: 20px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.6);
             text-align: center;
             backdrop-filter: blur(10px);
         }
@@ -46,9 +51,7 @@
             letter-spacing: 1px;
         }
 
-        .login-container h2 span {
-            color: var(--primary);
-        }
+        .login-container h2 span { color: var(--primary); }
 
         .login-container p {
             color: #555;
@@ -87,8 +90,8 @@
         }
 
         /* Animação do Label */
-        .form-group input:focus~label,
-        .form-group input:valid~label {
+        .form-group input:focus ~ label,
+        .form-group input:valid ~ label {
             top: -20px;
             font-size: 0.75rem;
             color: var(--primary);
@@ -143,12 +146,9 @@
             transition: 0.3s;
         }
 
-        .footer-links a:hover {
-            color: #fff;
-        }
+        .footer-links a:hover { color: #fff; }
     </style>
 </head>
-
 <body>
 
     <div class="login-container">
@@ -156,13 +156,13 @@
         <p>Acesso Restrito</p>
 
         <?php if(isset($_GET['erro'])): ?>
-        <div class="error-alert">
-            Acesso negado. Verifique usuário e senha.
-        </div>
+            <div class="error-alert">
+                Acesso negado. Verifique usuário e senha.
+            </div>
         <?php endif; ?>
 
         <form action="validar_login.php" method="POST">
-
+            
             <div class="form-group">
                 <input type="text" name="usuario" id="usuario" required autocomplete="off">
                 <label for="usuario">ID de Usuário</label>
@@ -184,5 +184,4 @@
     </div>
 
 </body>
-
 </html>

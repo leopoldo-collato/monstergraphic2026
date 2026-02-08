@@ -1,7 +1,11 @@
 <?php
 session_start();
 
-// Configurações do Banco de Dados
+// Exibe erros para debug (remova isso em produção)
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 $host = "localhost";
 $db   = "monster_db";
 $user = "root"; 
@@ -12,31 +16,26 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $usuario = $_POST['usuario']; // Nome do campo no seu HTML
-        $senha   = $_POST['senha'];   // Nome do campo no seu HTML
+        $usuario = $_POST['usuario'] ?? '';
+        $senha = $_POST['senha'] ?? '';
 
-        // Busca o usuário no banco
-        $sql = "SELECT id, usuario, senha FROM usuarios WHERE usuario = :usuario";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute(['usuario' => $usuario]);
+        $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE usuario = :u");
+        $stmt->execute(['u' => $usuario]);
         $user_data = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        // Verifica se usuário existe e se a senha (hash) é válida
         if ($user_data && password_verify($senha, $user_data['senha'])) {
-            // Sucesso: Cria a sessão
             $_SESSION['user_id'] = $user_data['id'];
             $_SESSION['user_nome'] = $user_data['usuario'];
-
-            // Redireciona para a área restrita ou index
-            header("Location: index.html");
+            header("Location: dashboard.php");
             exit();
         } else {
-            // Falha: Redireciona de volta com erro
-            header("Location: login.html?erro=1");
+            header("Location: login.php?erro=1");
             exit();
         }
+    } else {
+        echo "O servidor diz: Você precisa enviar os dados via formulário (POST).";
     }
 } catch (PDOException $e) {
-    die("Erro técnico: " . $e->getMessage());
+    echo "Erro de Banco de Dados: " . $e->getMessage();
 }
 ?>

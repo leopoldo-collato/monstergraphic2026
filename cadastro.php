@@ -3,7 +3,7 @@
 $host = "localhost";
 $db   = "monster_db";
 $user = "root"; // Altere se necessário
-$pass = "";     // Altere se necessário
+$pass = "Lmc@2025!";     // Altere se necessário
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8", $user, $pass);
